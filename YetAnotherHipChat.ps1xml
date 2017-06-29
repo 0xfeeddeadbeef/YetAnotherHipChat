@@ -1,0 +1,214 @@
+﻿<!--
+   Copyright 2017 George Chakhidze
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<Configuration>
+    <ViewDefinitions>
+        <View>
+            <Name>HipChatGetAllUsersResultList</Name>
+            <ViewSelectedBy>
+                <TypeName>HipChatGetAllUsersResult</TypeName>
+            </ViewSelectedBy>
+            <ListControl>
+                <ListEntries>
+                    <ListEntry>
+                        <ListItems>
+                            <ListItem>
+                                <Label>MentionName</Label>
+                                <ScriptBlock>
+                                    '@' + $_.mention_name
+                                </ScriptBlock>
+                            </ListItem>
+                            <ListItem>
+                                <Label>DisplayName</Label>
+                                <PropertyName>name</PropertyName>
+                            </ListItem>
+                            <ListItem>
+                                <Label>ID</Label>
+                                <PropertyName>id</PropertyName>
+                            </ListItem>
+                            <ListItem>
+                                <Label>URL</Label>
+                                <ScriptBlock>
+                                    $_.links.self
+                                </ScriptBlock>
+                            </ListItem>
+                        </ListItems>
+                    </ListEntry>
+                </ListEntries>
+            </ListControl>
+        </View>
+        <View>
+            <Name>HipChatGetAllUsersResultTable</Name>
+            <ViewSelectedBy>
+                <TypeName>HipChatGetAllUsersResult</TypeName>
+            </ViewSelectedBy>
+            <TableControl>
+                <TableHeaders>
+                    <TableColumnHeader>
+                        <Label>ID</Label>
+                        <Width>5</Width>
+                    </TableColumnHeader>
+                    <TableColumnHeader>
+                        <Label>Name</Label>
+                        <Width>30</Width>
+                    </TableColumnHeader>
+                    <TableColumnHeader>
+                        <Label>Mention</Label>
+                        <Width>30</Width>
+                    </TableColumnHeader>
+                    <TableColumnHeader>
+                        <Label>URL</Label>
+                        <Width>40</Width>
+                    </TableColumnHeader>
+                </TableHeaders>
+                <TableRowEntries>
+                    <TableRowEntry>
+                        <TableColumnItems>
+                            <TableColumnItem>
+                                <PropertyName>id</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>name</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <ScriptBlock>
+                                    '@' + $_.mention_name
+                                </ScriptBlock>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <ScriptBlock>
+                                    $_.links.self
+                                </ScriptBlock>
+                            </TableColumnItem>
+                        </TableColumnItems>
+                    </TableRowEntry>
+                </TableRowEntries>
+            </TableControl>
+        </View>
+        <View>
+            <Name>HipChatGetUserResultList</Name>
+            <ViewSelectedBy>
+                <TypeName>HipChatGetUserResult</TypeName>
+            </ViewSelectedBy>
+            <ListControl>
+                <ListEntries>
+                    <ListEntry>
+                        <ListItems>
+                            <ListItem>
+                                <Label>MentionName</Label>
+                                <ScriptBlock>
+                                    '@' + $_.mention_name
+                                </ScriptBlock>
+                            </ListItem>
+                            <ListItem>
+                                <Label>DisplayName</Label>
+                                <PropertyName>name</PropertyName>
+                            </ListItem>
+                            <ListItem>
+                                <Label>Title</Label>
+                                <PropertyName>title</PropertyName>
+                            </ListItem>
+                            <ListItem>
+                                <Label>Status</Label>
+                                <ScriptBlock>
+                                    if ($_.presence -and $_.presence.is_online) {
+                                        'Online'
+                                    } else {
+                                        'Offline'
+                                    }
+                                </ScriptBlock>
+                            </ListItem>
+                            <ListItem>
+                                <Label>ID</Label>
+                                <PropertyName>id</PropertyName>
+                            </ListItem>
+                            <ListItem>
+                                <Label>UserURL</Label>
+                                <ScriptBlock>
+                                    $_.links.self
+                                </ScriptBlock>
+                            </ListItem>
+                            <ListItem>
+                                <Label>PhotoURL</Label>
+                                <PropertyName>photo_url</PropertyName>
+                            </ListItem>
+                        </ListItems>
+                    </ListEntry>
+                </ListEntries>
+            </ListControl>
+        </View>
+        <View>
+            <Name>HipChatGetUserResultTable</Name>
+            <ViewSelectedBy>
+                <TypeName>HipChatGetUserResult</TypeName>
+            </ViewSelectedBy>
+            <TableControl>
+                <TableHeaders>
+                    <TableColumnHeader>
+                        <Label>ID</Label>
+                        <Width>5</Width>
+                    </TableColumnHeader>
+                    <TableColumnHeader>
+                        <Label>Name</Label>
+                        <Width>30</Width>
+                    </TableColumnHeader>
+                    <TableColumnHeader>
+                        <Label>Mention</Label>
+                        <Width>30</Width>
+                    </TableColumnHeader>
+                    <TableColumnHeader>
+                        <Label>Status</Label>
+                        <Width>10</Width>
+                    </TableColumnHeader>
+                    <TableColumnHeader>
+                        <Label>URL</Label>
+                        <Width>40</Width>
+                    </TableColumnHeader>
+                </TableHeaders>
+                <TableRowEntries>
+                    <TableRowEntry>
+                        <TableColumnItems>
+                            <TableColumnItem>
+                                <PropertyName>id</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <PropertyName>name</PropertyName>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <ScriptBlock>
+                                    '@' + $_.mention_name
+                                </ScriptBlock>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <ScriptBlock>
+                                    if ($_.presence -and $_.presence.is_online) {
+                                        'Online'
+                                    } else {
+                                        'Offline'
+                                    }
+                                </ScriptBlock>
+                            </TableColumnItem>
+                            <TableColumnItem>
+                                <ScriptBlock>
+                                    $_.links.self
+                                </ScriptBlock>
+                            </TableColumnItem>
+                        </TableColumnItems>
+                    </TableRowEntry>
+                </TableRowEntries>
+            </TableControl>
+        </View>
+    </ViewDefinitions>
+</Configuration>
