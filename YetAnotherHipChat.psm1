@@ -130,7 +130,7 @@ function Send-PrivateMessage
         [string] $HostName,
 
         [Parameter()]
-        [switch] $UseSSL = $true,
+        [switch] $UseSSL,
 
         [Parameter()]
         [uri] $Proxy = $null,
@@ -181,7 +181,7 @@ function Get-User
         [string] $HostName,
 
         [Parameter()]
-        [switch] $UseSSL = $true,
+        [switch] $UseSSL,
 
         [Parameter()]
         [uri] $Proxy = $null,
@@ -225,7 +225,7 @@ function Get-AllUsers
         [string] $HostName,
 
         [Parameter()]
-        [switch] $UseSSL = $true,
+        [switch] $UseSSL,
 
         [Parameter()]
         [uri] $Proxy = $null,
@@ -288,7 +288,7 @@ function New-Room
         [string] $HostName,
 
         [Parameter()]
-        [switch] $UseSSL = $true,
+        [switch] $UseSSL,
 
         [Parameter()]
         [uri] $Proxy = $null,
@@ -350,7 +350,7 @@ function Send-RoomMessage
         [string] $HostName,
 
         [Parameter()]
-        [switch] $UseSSL = $true,
+        [switch] $UseSSL,
 
         [Parameter()]
         [uri] $Proxy = $null,
@@ -415,7 +415,7 @@ function Send-RoomNotification
         [string] $HostName,
 
         [Parameter()]
-        [switch] $UseSSL = $true,
+        [switch] $UseSSL,
 
         [Parameter()]
         [uri] $Proxy = $null,
